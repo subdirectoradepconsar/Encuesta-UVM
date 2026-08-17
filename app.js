@@ -9,9 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const successModal = document.getElementById('successModal');
   const closeModalBtn = document.getElementById('closeModalBtn');
   const likertOptions = document.querySelectorAll('.likert-option');
+  const textareaQ2 = document.getElementById('textarea-q2');
+  const charCount = document.getElementById('charCount');
 
   // URL del Web App de Google Apps Script
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwUNx-kauS7pOgLbPtGjyJZOAagMM0PKLsCcWnM7OKMNxstCBDbU0f0iW29dnxng3IlJA/exec';
+
+  /**
+   * Contador de caracteres en tiempo real para Pregunta 2
+   */
+  if (textareaQ2 && charCount) {
+    textareaQ2.addEventListener('input', () => {
+      const currentLength = textareaQ2.value.length;
+      charCount.textContent = `${currentLength} / 1000`;
+    });
+  }
 
   /**
    * Sincronización visual de estado para radios Likert
@@ -61,8 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cardQ1 = document.getElementById('card-q1');
     const selectedRadio = form.querySelector('input[name="q1"]:checked');
+    const feedbackText = textareaQ2 ? textareaQ2.value.trim() : '';
 
-    // Validación de respuesta obligatoria
+    // Validación de respuesta obligatoria (Pregunta 1)
     if (!selectedRadio) {
       if (cardQ1) {
         cardQ1.classList.add('error-state');
@@ -96,7 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          satisfaction: valorSeleccionado
+          satisfaction: valorSeleccionado,
+          feedback: feedbackText
         })
       });
 
@@ -127,6 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
       option.removeAttribute('data-value');
     });
 
+    if (charCount) {
+      charCount.textContent = '0 / 1000';
+    }
+
     // Limpiar posibles estados de error
     document.querySelectorAll('.question-card').forEach(card => {
       card.classList.remove('error-state');
@@ -136,3 +154,4 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
+
