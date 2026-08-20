@@ -240,26 +240,6 @@ body {
   border-bottom: 1px solid rgba(223, 183, 108, 0.15);
 }
 
-.intro-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: rgba(223, 183, 108, 0.12);
-  border: 1px solid rgba(223, 183, 108, 0.35);
-  color: var(--accent-gold-light);
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  margin-bottom: 16px;
-  letter-spacing: 1px;
-}
-
-.intro-badge .info-icon {
-  color: var(--accent-gold);
-}
-
 .welcome-text {
   font-family: var(--font-heading);
   font-size: 1.12rem;
@@ -601,39 +581,6 @@ textarea:focus {
 }
 
 /* ==========================================================================
-   Badge Admin Flotante (Esquina Inferior Derecha, como image_1.png)
-   ========================================================================== */
-.admin-badge-btn {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  z-index: 90;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: rgba(23, 3, 12, 0.85);
-  border: 1px solid var(--border-panel);
-  color: var(--accent-gold);
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: var(--radius-pill);
-  text-decoration: none;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-  transition: var(--transition);
-}
-
-.admin-badge-btn:hover {
-  background-color: var(--bg-card);
-  border-color: var(--accent-gold-light);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px var(--accent-gold-glow);
-}
-
-/* ==========================================================================
    Pie de Página Institucional (Footer)
    ========================================================================== */
 .footer {
@@ -719,6 +666,7 @@ textarea:focus {
 .social-btn.instagram:hover { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); border-color: transparent; }
 .social-btn.youtube:hover { background: #FF0000; border-color: #FF0000; }
 .social-btn.website:hover { background: var(--accent-fuchsia); border-color: var(--accent-fuchsia); }
+.social-btn.newsletter:hover { background: #9f2241; border-color: #9f2241; }
 
 .footer-copyright {
   border-top: 1px solid rgba(223, 183, 108, 0.15);
@@ -882,4 +830,3 @@ textarea:focus {
     font-size: 0.95rem;
   }
 }
-
